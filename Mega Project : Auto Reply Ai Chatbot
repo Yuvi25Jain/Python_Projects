@@ -1,0 +1,11 @@
+main.py 
+
+import pyautogui
+
+while True:
+    a = pyautogui.position()
+    print(a)
+
+ #1485 267   
+# 558 191
+# 915 914
