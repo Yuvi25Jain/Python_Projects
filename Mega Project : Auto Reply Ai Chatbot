@@ -9,3 +9,55 @@ while True:
  #1485 267   
 # 558 191
 # 915 914
+
+
+client.py
+
+
+import os
+from openai import OpenAI
+
+client = OpenAI(
+    api_key  = "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"
+)
+
+completion = client.chat.completions.create(
+    model = "gpt-3.5-turbo",
+    messages = [
+        {"role":"system", "content": "You are a virtual assistant named as jarvis skilled in general tasks like alexa and google cloud"} , {"role": "user", "content" : "what is coding"}
+    ]
+)
+
+
+program.py
+
+import pyautogui
+import time
+import pyperclip
+
+# Give yourself a few seconds to switch to the right window
+time.sleep(5)
+
+# Step 1: Click on the icon at (1234, 1060)
+pyautogui.click(1046, 342)
+
+# Step 2: Drag from (558, 191) to (915, 914) to select the text
+pyautogui.moveTo(1513, 188)  # Move to the starting point
+pyautogui.mouseDown()        # Press down the mouse button
+pyautogui.moveTo(1879, 924, duration=1)  # Drag to the end point
+pyautogui.mouseUp()          # Release the mouse button
+
+# Step 3: Copy the selected text to the clipboard
+pyautogui.hotkey('ctrl', 'c') 
+#pyautogui.click(913, 966) # Use Ctrl+C to copy
+
+# Step 4: Retrieve the copied text and store it in a variable
+time.sleep(0.5)  # Wait a moment for the clipboard to update
+copied_text = pyperclip.paste()  # Get the text from the clipboard
+
+# Print the copied text (optional)
+print("Copied text:", copied_text)
+
+
+
+
